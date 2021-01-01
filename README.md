@@ -36,23 +36,13 @@ Completing the project involves several steps:
 6. Create a CodeBuild stage which will build, test, and deploy your code
 
 For more detail about each of these steps, see the project lesson [here](https://classroom.udacity.com/nanodegrees/nd004/parts/1d842ebf-5b10-4749-9e5e-ef28fe98f173/modules/ac13842f-c841-4c1a-b284-b47899f4613d/lessons/becb2dac-c108-4143-8f6c-11b30413e28d/concepts/092cdb35-28f7-4145-b6e6-6278b8dd7527).
-a
-
-a298283c5241d47b3933415986cd5348-592022574.us-east-2.elb.amazonaws.com
 
 
-export TOKEN=`curl -d '{"email":"<EMAIL>","password":"<PASSWORD>"}' -H "Content-Type: application/json" -X POST a298283c5241d47b3933415986cd5348-592022574.us-east-2.elb.amazonaws.com/auth  | jq -r '.token'`
-curl --request GET '<EXTERNAL-IP URL>/contents' -H "Authorization: Bearer ${TOKEN}" | jq 
+
+## External ip
+a7f6fc3998ef146a8be203ceb1707a69-822269054.eu-west-3.elb.amazonaws.com
 
 
-aws ssm put-parameter --name JWT_SECRET --value "myBigSecert" --type SecureString --region=eu-west-3
+export TOKEN=`curl -d '{"email":"","password":"<PASSWORD>"}' -H "Content-Type: application/json" -X POST a7f6fc3998ef146a8be203ceb1707a69-822269054.eu-west-3.elb.amazonaws.com/auth  | jq -r '.token'`
 
-export TOKEN=`curl -d '{"email":"","password":"<PASSWORD>"}' -H "Content-Type: application/json" -X POST a292a795a5d744a28b160478c44ead30-363673280.eu-west-3.elb.amazonaws.com/auth  | jq -r '.token'`
-curl --request GET '<EXTERNAL-IP URL>/contents' -H "Authorization: Bearer ${TOKEN}" | jq 
-
-
-https://22303CE609156A05594DE3A477405EFF.yl4.eu-west-3.eks.amazonaws.com
-
-export TOKEN=`curl -d '{"email":"","password":"<PASSWORD>"}' -H "Content-Type: application/json" -X POST 22303CE609156A05594DE3A477405EFF.yl4.eu-west-3.eks.amazonaws.com/auth  | jq -r '.token'`
-
-   TRUST="{ \"Version\": \"2012-10-17\", \"Statement\": [ { \"Effect\": \"Allow\", \"Principal\": { \"AWS\": \"arn:aws:iam::503430910908:root\" }, \"Action\": \"sts:AssumeRole\" } ] }"
+   curl --request GET 'a7f6fc3998ef146a8be203ceb1707a69-822269054.eu-west-3.elb.amazonaws.com/contents' -H "Authorization: Bearer ${TOKEN}" | jq 
