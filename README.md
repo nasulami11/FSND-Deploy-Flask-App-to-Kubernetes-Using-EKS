@@ -45,7 +45,14 @@ export TOKEN=`curl -d '{"email":"<EMAIL>","password":"<PASSWORD>"}' -H "Content-
 curl --request GET '<EXTERNAL-IP URL>/contents' -H "Authorization: Bearer ${TOKEN}" | jq 
 
 
-aws ssm put-parameter --name JWT_SECRET --value "myBigSecert" --type SecureString --region=us-east-2
+aws ssm put-parameter --name JWT_SECRET --value "myBigSecert" --type SecureString --region=eu-west-3
 
-aws/codebuild/standard:4.0
-jwt-api-test
+export TOKEN=`curl -d '{"email":"","password":"<PASSWORD>"}' -H "Content-Type: application/json" -X POST a292a795a5d744a28b160478c44ead30-363673280.eu-west-3.elb.amazonaws.com/auth  | jq -r '.token'`
+curl --request GET '<EXTERNAL-IP URL>/contents' -H "Authorization: Bearer ${TOKEN}" | jq 
+
+
+https://22303CE609156A05594DE3A477405EFF.yl4.eu-west-3.eks.amazonaws.com
+
+export TOKEN=`curl -d '{"email":"","password":"<PASSWORD>"}' -H "Content-Type: application/json" -X POST 22303CE609156A05594DE3A477405EFF.yl4.eu-west-3.eks.amazonaws.com/auth  | jq -r '.token'`
+
+   TRUST="{ \"Version\": \"2012-10-17\", \"Statement\": [ { \"Effect\": \"Allow\", \"Principal\": { \"AWS\": \"arn:aws:iam::503430910908:root\" }, \"Action\": \"sts:AssumeRole\" } ] }"
